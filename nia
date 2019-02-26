@@ -1,0 +1,49 @@
+# -*- coding:utf-8 -*-
+
+import json
+import os
+from pprint import pprint
+
+data = dict()
+result = dict()
+result['data'] = list()
+i = 0
+for f in (os.listdir('input')):
+    with open(os.path.join('input', f), "r", encoding="cp949") as f:
+        data = json.load(f)
+        data['영선'] = i
+        i+=1
+        result['data'].append(data)
+pprint (result)
+
+"""
+for i in range(2):
+    with open('input/1.json'.format(i), encoding="cp949") as f:
+        data = json.load(f)
+        data['영선'] = i
+"""
+# pprint (data)
+
+"""
+result = dict()
+result['creator'] = "MINDs Lab."
+result['data'] = list()
+result['data'].append(data)
+
+pprint (result)
+"""
+
+"""
+data1 = {"1":"안녕하세요"}
+data2 = {"2":"선생님"}
+
+
+result = dict()
+result['creator'] = "MINDs Lab."
+result['data'] = list()
+
+print (result)
+
+with open("ko_mrc_squad.json",'w', encoding='utf8') as fp:
+    json.dump(result, fp, ensure_ascii=False, indent=2)
+"""
